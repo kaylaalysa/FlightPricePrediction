@@ -9,7 +9,7 @@ import pickle # type: ignore
 from sklearn.preprocessing import StandardScaler # type: ignore
 
 app = Flask(__name__)
-# app.secret_key = 'supersecretkey'
+
 
 # Load model
 model = joblib.load("best_model_rf.pkl")
@@ -47,11 +47,6 @@ def predict():
         travel_class = float(request.form['travel_class'])
         duration = float(request.form['duration'])
         days_left = float(request.form['days_left'])
-
-        # Create feature array
-        # features = np.array([[airline, flight,source_city, departure_time, stops, arrival_time, destination_city, travel_class, duration, days_left]])
-
-        # X_scaled = scaler_features.transform(features)
 
         feature_names = ['airline', 'flight', 'source_city', 'departure_time', 'stops', 'arrival_time', 'destination_city', 'travel_class', 'duration', 'days_left']
         features_df = pd.DataFrame([[airline, flight, source_city, departure_time, stops, arrival_time, destination_city, travel_class, duration, days_left]],
