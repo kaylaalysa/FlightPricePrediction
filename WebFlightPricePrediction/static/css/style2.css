@@ -1,0 +1,93 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+    font-size: 14px;
+  }
+  
+  form {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    max-width: 1000px;
+    padding: 50px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  img {
+      max-width: 800px;
+      max-height: 150px;
+      margin-bottom: 100px;
+      grid-column: span 3;
+      margin: auto;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 8px;
+    margin-top: 10px;
+  }
+  
+  input,select{
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+    font-size: 12px;
+  }
+  
+  button{
+    grid-column: span 3; /* Make the button span both columns */
+    background-color: #4caf50;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  
+  /* Add styles for the "styled-input" class */
+  .styled-input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+    font-size: 11px;
+    background-color: #fff;
+    border: 1px solid gray;
+    border-radius: 3px;
+    outline: none;
+  }
+    
+  /* Override the default input style for Select2 elements */
+  .select2-container--default .select2-selection--single {
+    height: auto !important;
+  }
+    
+  .select2-container--default .select2-selection--single .select2-selection__rendered {
+    line-height: 1.5;
+  }
+    
+  .select2-container--default .select2-selection--single .select2-selection__arrow {
+    top: 50% !important;
+    transform: translateY(-50%);
+  }
+  
+  .prediction{
+    font-size: 16px;
+    margin: auto;
+    grid-column: span 3;
+  }
+    
+    

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <link rel="icon" href="images/favicon.png" type="image/gif" />
+
+  <title>Flight Price Prediction - About Me</title>
+
+  <!-- bootstrap core css -->
+  <!-- <link rel="stylesheet" type="text/css" href="css/bootstrap.css" /> -->
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" rel="stylesheet" />
+
+  <!-- font awesome style -->
+  <!-- <link href="css/font-awesome.min.css" rel="stylesheet" /> -->
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/font-awesome.min.css') }}">
+
+
+  <!-- Custom styles for this template -->
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+  <!-- responsive style -->
+  <!-- <link href="css/responsive.css" rel="stylesheet" /> -->
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/responsive.css') }}">
+
+</head>
+
+<body>
+
+  <!-- header section strats -->
+  <header class="header_section innerpage_header">
+    <div class="container-fluid">
+      <nav class="navbar navbar-expand-lg custom_nav-container">
+        <a class="navbar-brand" href="{{ url_for('home') }}">
+          <span>
+            Flight Price Prediction
+          </span>
+        </a>
+        <div class="" id="">
+
+          <div class="custom_menu-btn">
+            <button onclick="openNav()">
+              <span class="s-1"> </span>
+              <span class="s-2"> </span>
+              <span class="s-3"> </span>
+            </button>
+            <div id="myNav" class="overlay">
+              <div class="overlay-content">
+                <a href="{{ url_for('home') }}">Home</a>
+                <a href="{{ url_for('formpredict') }}">Predict Flight Price</a>
+                <a href="{{ url_for('about') }}">About Me</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <!-- end header section -->
+
+
+  <!-- about section -->
+
+  <section class="about_section layout_padding ">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="img-box">
+            <img src="https://github.com/user-attachments/assets/4c8d8cba-b9c1-4aa5-95f2-5fe1c18246ae" alt="Foto Portfolio">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="detail-box">
+            <div class="heading_container">
+              <h2>
+                About Me
+              </h2>
+            </div>
+            <p>
+              Hello and welcome! I'm someone who’s passionate about transforming data into real, impactful solutions. Exploring tech is always an exciting journey—especially when it helps others in simple and smart ways. This web app is a part of that journey, built using machine learning to predict flight ticket prices. Go ahead, give it a try! Technology should make life easier, and hopefully, this tool does just that 😉
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end about section -->
+
+
+  <!-- info section -->
+  <section class="info_section innerpage_info_section">
+    <div class="container">
+      <div class="row info_main_row">
+        <div class="col-md-6 col-lg-3">
+          <div class="info_insta">
+            <h4>
+              <a href="{{ url_for('home') }}" class="navbar-brand m-0 p-0">
+                <span>
+                  Kayla Alysa 
+                </span>
+              </a>
+            </h4>
+            <p class="mb-0">
+              A Fresh Graduate of Information Technology passionate about data science, machine learning, and impactful digital solutions. This project is a small part of a bigger journey 🌟
+            </p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="info_detail">
+            <h4>
+              Project
+            </h4>
+            <p class="mb-0">
+              This web app is powered by a Machine Learning model using Random Forest Regressor to predict flight prices based on various travel features. Made with 💙 and code.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <h4>
+            Contact Me
+          </h4>
+          <div class="info_contact">
+            <a href="">
+              <i class="fa fa-map-marker" aria-hidden="true"></i>
+              <span>
+                Medan, Sumatera Utara
+              </span>
+            </a>
+            <a href="">
+              <i class="fa fa-envelope"></i>
+              <span>
+                Kaylaaadra12@gmail.com
+              </span>
+            </a>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <h4>
+            Follow Me
+          </h4>
+          <div class="social_box">
+            <a href="https://id.linkedin.com/in/kaylaalysa" target="_blank">
+              <i class="fa fa-linkedin" aria-hidden="true"></i>
+            </a>
+            <a href="http://instagram.com/kaylaalysaa" target="_blank">
+              <i class="fa fa-instagram" aria-hidden="true"></i>
+            </a>
+            <a href="https://github.com/kaylaalysa" target="_blank">
+              <i class="fa fa-github" aria-hidden="true"></i>
+            </a>            
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end info_section -->
+
+
+  <!-- jQery -->
+  <!-- <script src="js/jquery-3.4.1.min.js"></script> -->
+  <!-- bootstrap js -->
+  <!-- <script src="js/bootstrap.js"></script> -->
+  <!-- custom js -->
+  <!-- <script src="js/custom.js"></script> -->
+
+  <!-- jQuery -->
+  <script src="{{ url_for('static', filename='js/jquery-3.4.1.min.js') }}"></script>
+  <!-- Bootstrap JS -->
+  <script src="{{ url_for('static', filename='js/bootstrap.js') }}"></script>
+  <!-- Custom JS -->
+  <script src="{{ url_for('static', filename='js/custom.js') }}"></script>
+
+</body>
+
+</html>

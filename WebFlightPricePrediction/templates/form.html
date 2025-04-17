@@ -1,0 +1,1900 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <!-- <link rel="icon" href="images/favicon.png" type="image/gif" /> -->
+
+  <title>Flight Price Prediction - Form</title>
+
+  <!-- bootstrap core css -->
+  <!-- <link rel="stylesheet" type="text/css" href="css/bootstrap.css" /> -->
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" rel="stylesheet" />
+
+  <!-- font awesome style -->
+  <!-- <link href="css/font-awesome.min.css" rel="stylesheet" /> -->
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/font-awesome.min.css') }}">
+
+
+  <!-- Custom styles for this template -->
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+  <!-- responsive style -->
+  <!-- <link href="css/responsive.css" rel="stylesheet" /> -->
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/responsive.css') }}">
+
+  <!-- CSS Select2 -->
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
+
+
+  <style>
+    input[type=text], select, input[type=number]{
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    input[type=submit] {
+      width: 100%;
+      background-color: #4CAF50;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    input[type=submit]:hover {
+      background-color: #45a049;
+    }
+
+    .select2-container .select2-selection--single {
+      height: 44px; /* Samakan dengan input */
+      padding: 12px 20px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+    }
+
+    .select2-container--default .select2-selection--single .select2-selection__rendered {
+      line-height: 20px;
+    }
+
+    .select2-container--default .select2-selection--single .select2-selection__arrow {
+      height: 100%;
+    }
+
+
+    
+  </style>
+
+</head>
+
+<body>
+
+  <!-- header section strats -->
+  <header class="header_section innerpage_header">
+    <div class="container-fluid">
+      <nav class="navbar navbar-expand-lg custom_nav-container">
+        <a class="navbar-brand" href="{{ url_for('home') }}">
+          <span>
+            Flight Price Prediction
+          </span>
+        </a>
+        <div class="" id="">
+
+          <div class="custom_menu-btn">
+            <button onclick="openNav()">
+              <span class="s-1"> </span>
+              <span class="s-2"> </span>
+              <span class="s-3"> </span>
+            </button>
+            <div id="myNav" class="overlay">
+              <div class="overlay-content">
+                <a href="{{ url_for('home') }}">Home</a>
+                <a href="{{ url_for('formpredict') }}">Predict Flight Price</a>
+                <a href="{{ url_for('about') }}">About Me</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <!-- end header section -->
+
+
+  <!-- about section -->
+
+  <section class="about_section layout_padding ">
+    <div class="container">
+        <div class="heading_container">
+              <h2 style="text-align: center;">
+                Indian Flight Price Prediction
+              </h2><br>
+        </div>
+
+        <form method="post" action="{{ url_for('predict') }}">
+
+            <label for="airline" >Airline</label>
+            <select class="form__input" id="airline" name="airline" required>
+                <option value="" disabled selected>Select an Airline</option>
+                <option value="0">Air Asia</option>
+                <option value="1">Air India</option>
+                <option value="2">Go First</option>
+                <option value="3">Indigo</option>
+                <option value="4">Spice Jet</option>
+                <option value="5">Vistara</option>
+            </select ><br>
+
+            <label for="flight" >Flight</label>
+            <select class="form__input select2" id="flight" name="flight" required>
+              <option value="" disabled selected>Select a Flight</option>
+              <option value="0">6E-102</option>
+              <option value="1">6E-105</option>
+              <option value="2">6E-113</option>
+              <option value="3">6E-121</option>
+              <option value="4">6E-123</option>
+              <option value="5">6E-126</option>
+              <option value="6">6E-128</option>
+              <option value="7">6E-131</option>
+              <option value="8">6E-132</option>
+              <option value="9">6E-134</option>
+              <option value="10">6E-135</option>
+              <option value="11">6E-136</option>
+              <option value="12">6E-138</option>
+              <option value="13">6E-139</option>
+              <option value="14">6E-146</option>
+              <option value="15">6E-148</option>
+              <option value="16">6E-149</option>
+              <option value="17">6E-151</option>
+              <option value="18">6E-152</option>
+              <option value="19">6E-153</option>
+              <option value="20">6E-154</option>
+              <option value="21">6E-156</option>
+              <option value="22">6E-157</option>
+              <option value="23">6E-161</option>
+              <option value="24">6E-164</option>
+              <option value="25">6E-165</option>
+              <option value="26">6E-168</option>
+              <option value="27">6E-171</option>
+              <option value="28">6E-172</option>
+              <option value="29">6E-176</option>
+              <option value="30">6E-177</option>
+              <option value="31">6E-179</option>
+              <option value="32">6E-181</option>
+              <option value="33">6E-183</option>
+              <option value="34">6E-184</option>
+              <option value="35">6E-186</option>
+              <option value="36">6E-188</option>
+              <option value="37">6E-192</option>
+              <option value="38">6E-193</option>
+              <option value="39">6E-198</option>
+              <option value="40">6E-199</option>
+              <option value="41">6E-2001</option>
+              <option value="42">6E-2005</option>
+              <option value="43">6E-2007</option>
+              <option value="44">6E-2008</option>
+              <option value="45">6E-2009</option>
+              <option value="46">6E-201</option>
+              <option value="47">6E-2013</option>
+              <option value="48">6E-2015</option>
+              <option value="49">6E-2016</option>
+              <option value="50">6E-2022</option>
+              <option value="51">6E-2025</option>
+              <option value="52">6E-2026</option>
+              <option value="53">6E-2027</option>
+              <option value="54">6E-2028</option>
+              <option value="55">6E-2031</option>
+              <option value="56">6E-2032</option>
+              <option value="57">6E-2033</option>
+              <option value="58">6E-2034</option>
+              <option value="59">6E-2036</option>
+              <option value="60">6E-2042</option>
+              <option value="61">6E-2043</option>
+              <option value="62">6E-2046</option>
+              <option value="63">6E-2047</option>
+              <option value="64">6E-2048</option>
+              <option value="65">6E-205</option>
+              <option value="66">6E-2053</option>
+              <option value="67">6E-2054</option>
+              <option value="68">6E-2057</option>
+              <option value="69">6E-2061</option>
+              <option value="70">6E-2062</option>
+              <option value="71">6E-2065</option>
+              <option value="72">6E-2069</option>
+              <option value="73">6E-207</option>
+              <option value="74">6E-2076</option>
+              <option value="75">6E-2077</option>
+              <option value="76">6E-208</option>
+              <option value="77">6E-2081</option>
+              <option value="78">6E-2082</option>
+              <option value="79">6E-2083</option>
+              <option value="80">6E-2087</option>
+              <option value="81">6E-2089</option>
+              <option value="82">6E-2092</option>
+              <option value="83">6E-2093</option>
+              <option value="84">6E-2097</option>
+              <option value="85">6E-2102</option>
+              <option value="86">6E-2103</option>
+              <option value="87">6E-2106</option>
+              <option value="88">6E-2107</option>
+              <option value="89">6E-2109</option>
+              <option value="90">6E-212</option>
+              <option value="91">6E-2127</option>
+              <option value="92">6E-213</option>
+              <option value="93">6E-2131</option>
+              <option value="94">6E-2137</option>
+              <option value="95">6E-2147</option>
+              <option value="96">6E-2148</option>
+              <option value="97">6E-2154</option>
+              <option value="98">6E-2162</option>
+              <option value="99">6E-2168</option>
+              <option value="100">6E-2169</option>
+              <option value="101">6E-2172</option>
+              <option value="102">6E-2174</option>
+              <option value="103">6E-2176</option>
+              <option value="104">6E-2178</option>
+              <option value="105">6E-218</option>
+              <option value="106">6E-2181</option>
+              <option value="107">6E-2186</option>
+              <option value="108">6E-2188</option>
+              <option value="109">6E-219</option>
+              <option value="110">6E-2193</option>
+              <option value="111">6E-221</option>
+              <option value="112">6E-224</option>
+              <option value="113">6E-2247</option>
+              <option value="114">6E-2248</option>
+              <option value="115">6E-2249</option>
+              <option value="116">6E-227</option>
+              <option value="117">6E-2274</option>
+              <option value="118">6E-232</option>
+              <option value="119">6E-2329</option>
+              <option value="120">6E-2331</option>
+              <option value="121">6E-2336</option>
+              <option value="122">6E-2337</option>
+              <option value="123">6E-2338</option>
+              <option value="124">6E-234</option>
+              <option value="125">6E-2343</option>
+              <option value="126">6E-2346</option>
+              <option value="127">6E-2348</option>
+              <option value="128">6E-2349</option>
+              <option value="129">6E-236</option>
+              <option value="130">6E-2367</option>
+              <option value="131">6E-2373</option>
+              <option value="132">6E-244</option>
+              <option value="133">6E-245</option>
+              <option value="134">6E-2456</option>
+              <option value="135">6E-246</option>
+              <option value="136">6E-2471</option>
+              <option value="137">6E-2474</option>
+              <option value="138">6E-2478</option>
+              <option value="139">6E-2479</option>
+              <option value="140">6E-248</option>
+              <option value="141">6E-2485</option>
+              <option value="142">6E-251</option>
+              <option value="143">6E-2511</option>
+              <option value="144">6E-2513</option>
+              <option value="145">6E-2514</option>
+              <option value="146">6E-2516</option>
+              <option value="147">6E-2517</option>
+              <option value="148">6E-2518</option>
+              <option value="149">6E-2519</option>
+              <option value="150">6E-255</option>
+              <option value="151">6E-261</option>
+              <option value="152">6E-2615</option>
+              <option value="153">6E-2616</option>
+              <option value="154">6E-2618</option>
+              <option value="155">6E-266</option>
+              <option value="156">6E-268</option>
+              <option value="157">6E-2685</option>
+              <option value="158">6E-269</option>
+              <option value="159">6E-271</option>
+              <option value="160">6E-2719</option>
+              <option value="161">6E-274</option>
+              <option value="162">6E-2752</option>
+              <option value="163">6E-2753</option>
+              <option value="164">6E-276</option>
+              <option value="165">6E-2763</option>
+              <option value="166">6E-2769</option>
+              <option value="167">6E-282</option>
+              <option value="168">6E-283</option>
+              <option value="169">6E-2841</option>
+              <option value="170">6E-2843</option>
+              <option value="171">6E-285</option>
+              <option value="172">6E-286</option>
+              <option value="173">6E-289</option>
+              <option value="174">6E-2901</option>
+              <option value="175">6E-2914</option>
+              <option value="176">6E-292</option>
+              <option value="177">6E-2938</option>
+              <option value="178">6E-2939</option>
+              <option value="179">6E-294</option>
+              <option value="180">6E-295</option>
+              <option value="181">6E-296</option>
+              <option value="182">6E-298</option>
+              <option value="183">6E-307</option>
+              <option value="184">6E-308</option>
+              <option value="185">6E-309</option>
+              <option value="186">6E-312</option>
+              <option value="187">6E-318</option>
+              <option value="188">6E-319</option>
+              <option value="189">6E-321</option>
+              <option value="190">6E-3211</option>
+              <option value="191">6E-3214</option>
+              <option value="192">6E-327</option>
+              <option value="193">6E-331</option>
+              <option value="194">6E-332</option>
+              <option value="195">6E-345</option>
+              <option value="196">6E-353</option>
+              <option value="197">6E-354</option>
+              <option value="198">6E-356</option>
+              <option value="199">6E-357</option>
+              <option value="200">6E-358</option>
+              <option value="201">6E-363</option>
+              <option value="202">6E-365</option>
+              <option value="203">6E-368</option>
+              <option value="204">6E-369</option>
+              <option value="205">6E-371</option>
+              <option value="206">6E-374</option>
+              <option value="207">6E-375</option>
+              <option value="208">6E-379</option>
+              <option value="209">6E-384</option>
+              <option value="210">6E-387</option>
+              <option value="211">6E-394</option>
+              <option value="212">6E-395</option>
+              <option value="213">6E-397</option>
+              <option value="214">6E-398</option>
+              <option value="215">6E-401</option>
+              <option value="216">6E-404</option>
+              <option value="217">6E-408</option>
+              <option value="218">6E-409</option>
+              <option value="219">6E-413</option>
+              <option value="220">6E-415</option>
+              <option value="221">6E-416</option>
+              <option value="222">6E-417</option>
+              <option value="223">6E-425</option>
+              <option value="224">6E-426</option>
+              <option value="225">6E-434</option>
+              <option value="226">6E-436</option>
+              <option value="227">6E-438</option>
+              <option value="228">6E-439</option>
+              <option value="229">6E-442</option>
+              <option value="230">6E-448</option>
+              <option value="231">6E-453</option>
+              <option value="232">6E-455</option>
+              <option value="233">6E-457</option>
+              <option value="234">6E-461</option>
+              <option value="235">6E-469</option>
+              <option value="236">6E-477</option>
+              <option value="237">6E-478</option>
+              <option value="238">6E-483</option>
+              <option value="239">6E-484</option>
+              <option value="240">6E-487</option>
+              <option value="241">6E-488</option>
+              <option value="242">6E-489</option>
+              <option value="243">6E-495</option>
+              <option value="244">6E-496</option>
+              <option value="245">6E-5001</option>
+              <option value="246">6E-5002</option>
+              <option value="247">6E-5003</option>
+              <option value="248">6E-5006</option>
+              <option value="249">6E-5007</option>
+              <option value="250">6E-5012</option>
+              <option value="251">6E-5013</option>
+              <option value="252">6E-5014</option>
+              <option value="253">6E-5016</option>
+              <option value="254">6E-5017</option>
+              <option value="255">6E-5018</option>
+              <option value="256">6E-502</option>
+              <option value="257">6E-5026</option>
+              <option value="258">6E-503</option>
+              <option value="259">6E-5031</option>
+              <option value="260">6E-5037</option>
+              <option value="261">6E-5038</option>
+              <option value="262">6E-5041</option>
+              <option value="263">6E-5042</option>
+              <option value="264">6E-5047</option>
+              <option value="265">6E-5059</option>
+              <option value="266">6E-5063</option>
+              <option value="267">6E-5071</option>
+              <option value="268">6E-5073</option>
+              <option value="269">6E-5087</option>
+              <option value="270">6E-5088</option>
+              <option value="271">6E-512</option>
+              <option value="272">6E-514</option>
+              <option value="273">6E-515</option>
+              <option value="274">6E-5175</option>
+              <option value="275">6E-5176</option>
+              <option value="276">6E-519</option>
+              <option value="277">6E-5202</option>
+              <option value="278">6E-5203</option>
+              <option value="279">6E-5206</option>
+              <option value="280">6E-5207</option>
+              <option value="281">6E-5208</option>
+              <option value="282">6E-5209</option>
+              <option value="283">6E-5211</option>
+              <option value="284">6E-5214</option>
+              <option value="285">6E-5217</option>
+              <option value="286">6E-5218</option>
+              <option value="287">6E-5236</option>
+              <option value="288">6E-524</option>
+              <option value="289">6E-528</option>
+              <option value="290">6E-5302</option>
+              <option value="291">6E-5303</option>
+              <option value="292">6E-5305</option>
+              <option value="293">6E-5307</option>
+              <option value="294">6E-5308</option>
+              <option value="295">6E-531</option>
+              <option value="296">6E-5312</option>
+              <option value="297">6E-5313</option>
+              <option value="298">6E-5316</option>
+              <option value="299">6E-5317</option>
+              <option value="300">6E-5323</option>
+              <option value="301">6E-5325</option>
+              <option value="302">6E-5327</option>
+              <option value="303">6E-5328</option>
+              <option value="304">6E-5329</option>
+              <option value="305">6E-533</option>
+              <option value="306">6E-5331</option>
+              <option value="307">6E-5332</option>
+              <option value="308">6E-5336</option>
+              <option value="309">6E-5337</option>
+              <option value="310">6E-5338</option>
+              <option value="311">6E-534</option>
+              <option value="312">6E-5342</option>
+              <option value="313">6E-5343</option>
+              <option value="314">6E-5344</option>
+              <option value="315">6E-5345</option>
+              <option value="316">6E-5347</option>
+              <option value="317">6E-5349</option>
+              <option value="318">6E-5352</option>
+              <option value="319">6E-5355</option>
+              <option value="320">6E-5358</option>
+              <option value="321">6E-5359</option>
+              <option value="322">6E-5361</option>
+              <option value="323">6E-5365</option>
+              <option value="324">6E-5366</option>
+              <option value="325">6E-5367</option>
+              <option value="326">6E-5368</option>
+              <option value="327">6E-5369</option>
+              <option value="328">6E-537</option>
+              <option value="329">6E-5371</option>
+              <option value="330">6E-5372</option>
+              <option value="331">6E-5373</option>
+              <option value="332">6E-5375</option>
+              <option value="333">6E-5376</option>
+              <option value="334">6E-5379</option>
+              <option value="335">6E-5381</option>
+              <option value="336">6E-5382</option>
+              <option value="337">6E-5384</option>
+              <option value="338">6E-5386</option>
+              <option value="339">6E-5389</option>
+              <option value="340">6E-539</option>
+              <option value="341">6E-5391</option>
+              <option value="342">6E-5392</option>
+              <option value="343">6E-5393</option>
+              <option value="344">6E-5394</option>
+              <option value="345">6E-5395</option>
+              <option value="346">6E-5396</option>
+              <option value="347">6E-5398</option>
+              <option value="348">6E-5399</option>
+              <option value="349">6E-541</option>
+              <option value="350">6E-542</option>
+              <option value="351">6E-543</option>
+              <option value="352">6E-5431</option>
+              <option value="353">6E-544</option>
+              <option value="354">6E-546</option>
+              <option value="355">6E-549</option>
+              <option value="356">6E-5501</option>
+              <option value="357">6E-552</option>
+              <option value="358">6E-557</option>
+              <option value="359">6E-559</option>
+              <option value="360">6E-561</option>
+              <option value="361">6E-562</option>
+              <option value="362">6E-563</option>
+              <option value="363">6E-566</option>
+              <option value="364">6E-573</option>
+              <option value="365">6E-574</option>
+              <option value="366">6E-575</option>
+              <option value="367">6E-581</option>
+              <option value="368">6E-584</option>
+              <option value="369">6E-588</option>
+              <option value="370">6E-591</option>
+              <option value="371">6E-595</option>
+              <option value="372">6E-599</option>
+              <option value="373">6E-6004</option>
+              <option value="374">6E-6006</option>
+              <option value="375">6E-6007</option>
+              <option value="376">6E-6012</option>
+              <option value="377">6E-6014</option>
+              <option value="378">6E-6016</option>
+              <option value="379">6E-6017</option>
+              <option value="380">6E-6021</option>
+              <option value="381">6E-6023</option>
+              <option value="382">6E-6029</option>
+              <option value="383">6E-605</option>
+              <option value="384">6E-6051</option>
+              <option value="385">6E-606</option>
+              <option value="386">6E-6062</option>
+              <option value="387">6E-6066</option>
+              <option value="388">6E-6067</option>
+              <option value="389">6E-607</option>
+              <option value="390">6E-6084</option>
+              <option value="391">6E-6085</option>
+              <option value="392">6E-6086</option>
+              <option value="393">6E-6087</option>
+              <option value="394">6E-6088</option>
+              <option value="395">6E-6094</option>
+              <option value="396">6E-6095</option>
+              <option value="397">6E-6096</option>
+              <option value="398">6E-6098</option>
+              <option value="399">6E-6104</option>
+              <option value="400">6E-6106</option>
+              <option value="401">6E-6109</option>
+              <option value="402">6E-611</option>
+              <option value="403">6E-6111</option>
+              <option value="404">6E-6113</option>
+              <option value="405">6E-6121</option>
+              <option value="406">6E-6123</option>
+              <option value="407">6E-6128</option>
+              <option value="408">6E-613</option>
+              <option value="409">6E-6137</option>
+              <option value="410">6E-6139</option>
+              <option value="411">6E-6148</option>
+              <option value="412">6E-6151</option>
+              <option value="413">6E-6171</option>
+              <option value="414">6E-6172</option>
+              <option value="415">6E-6174</option>
+              <option value="416">6E-6178</option>
+              <option value="417">6E-6182</option>
+              <option value="418">6E-6183</option>
+              <option value="419">6E-6186</option>
+              <option value="420">6E-6187</option>
+              <option value="421">6E-6189</option>
+              <option value="422">6E-6195</option>
+              <option value="423">6E-6197</option>
+              <option value="424">6E-6198</option>
+              <option value="425">6E-6201</option>
+              <option value="426">6E-6202</option>
+              <option value="427">6E-6205</option>
+              <option value="428">6E-6206</option>
+              <option value="429">6E-621</option>
+              <option value="430">6E-6211</option>
+              <option value="431">6E-6212</option>
+              <option value="432">6E-6213</option>
+              <option value="433">6E-6214</option>
+              <option value="434">6E-6215</option>
+              <option value="435">6E-6216</option>
+              <option value="436">6E-6217</option>
+              <option value="437">6E-6219</option>
+              <option value="438">6E-6222</option>
+              <option value="439">6E-6223</option>
+              <option value="440">6E-6227</option>
+              <option value="441">6E-6231</option>
+              <option value="442">6E-6233</option>
+              <option value="443">6E-6234</option>
+              <option value="444">6E-6238</option>
+              <option value="445">6E-6242</option>
+              <option value="446">6E-6245</option>
+              <option value="447">6E-6247</option>
+              <option value="448">6E-6257</option>
+              <option value="449">6E-6258</option>
+              <option value="450">6E-626</option>
+              <option value="451">6E-6261</option>
+              <option value="452">6E-6264</option>
+              <option value="453">6E-6268</option>
+              <option value="454">6E-6269</option>
+              <option value="455">6E-627</option>
+              <option value="456">6E-6271</option>
+              <option value="457">6E-6277</option>
+              <option value="458">6E-6278</option>
+              <option value="459">6E-6282</option>
+              <option value="460">6E-6292</option>
+              <option value="461">6E-6293</option>
+              <option value="462">6E-6294</option>
+              <option value="463">6E-6307</option>
+              <option value="464">6E-6309</option>
+              <option value="465">6E-6319</option>
+              <option value="466">6E-6324</option>
+              <option value="467">6E-6326</option>
+              <option value="468">6E-6339</option>
+              <option value="469">6E-634</option>
+              <option value="470">6E-6344</option>
+              <option value="471">6E-6345</option>
+              <option value="472">6E-635</option>
+              <option value="473">6E-6358</option>
+              <option value="474">6E-6366</option>
+              <option value="475">6E-638</option>
+              <option value="476">6E-6381</option>
+              <option value="477">6E-6386</option>
+              <option value="478">6E-6393</option>
+              <option value="479">6E-6417</option>
+              <option value="480">6E-643</option>
+              <option value="481">6E-6433</option>
+              <option value="482">6E-6444</option>
+              <option value="483">6E-6445</option>
+              <option value="484">6E-6463</option>
+              <option value="485">6E-6464</option>
+              <option value="486">6E-6467</option>
+              <option value="487">6E-6474</option>
+              <option value="488">6E-6475</option>
+              <option value="489">6E-6478</option>
+              <option value="490">6E-6479</option>
+              <option value="491">6E-6488</option>
+              <option value="492">6E-6491</option>
+              <option value="493">6E-6505</option>
+              <option value="494">6E-6513</option>
+              <option value="495">6E-6515</option>
+              <option value="496">6E-6517</option>
+              <option value="497">6E-6535</option>
+              <option value="498">6E-654</option>
+              <option value="499">6E-6553</option>
+              <option value="500">6E-6565</option>
+              <option value="501">6E-6567</option>
+              <option value="502">6E-6572</option>
+              <option value="503">6E-6591</option>
+              <option value="504">6E-6593</option>
+              <option value="505">6E-6597</option>
+              <option value="506">6E-6612</option>
+              <option value="507">6E-6613</option>
+              <option value="508">6E-6616</option>
+              <option value="509">6E-6623</option>
+              <option value="510">6E-6636</option>
+              <option value="511">6E-668</option>
+              <option value="512">6E-6684</option>
+              <option value="513">6E-6717</option>
+              <option value="514">6E-6719</option>
+              <option value="515">6E-6721</option>
+              <option value="516">6E-6722</option>
+              <option value="517">6E-6737</option>
+              <option value="518">6E-6739</option>
+              <option value="519">6E-6741</option>
+              <option value="520">6E-6749</option>
+              <option value="521">6E-6753</option>
+              <option value="522">6E-676</option>
+              <option value="523">6E-6781</option>
+              <option value="524">6E-6785</option>
+              <option value="525">6E-6798</option>
+              <option value="526">6E-6802</option>
+              <option value="527">6E-6809</option>
+              <option value="528">6E-6815</option>
+              <option value="529">6E-6817</option>
+              <option value="530">6E-6818</option>
+              <option value="531">6E-6825</option>
+              <option value="532">6E-684</option>
+              <option value="533">6E-6865</option>
+              <option value="534">6E-6876</option>
+              <option value="535">6E-6891</option>
+              <option value="536">6E-6893</option>
+              <option value="537">6E-6897</option>
+              <option value="538">6E-6915</option>
+              <option value="539">6E-6917</option>
+              <option value="540">6E-6926</option>
+              <option value="541">6E-6939</option>
+              <option value="542">6E-695</option>
+              <option value="543">6E-6965</option>
+              <option value="544">6E-6971</option>
+              <option value="545">6E-698</option>
+              <option value="546">6E-6993</option>
+              <option value="547">6E-702</option>
+              <option value="548">6E-7062</option>
+              <option value="549">6E-7071</option>
+              <option value="550">6E-7076</option>
+              <option value="551">6E-708</option>
+              <option value="552">6E-7084</option>
+              <option value="553">6E-711</option>
+              <option value="554">6E-7114</option>
+              <option value="555">6E-7115</option>
+              <option value="556">6E-7118</option>
+              <option value="557">6E-7121</option>
+              <option value="558">6E-7127</option>
+              <option value="559">6E-713</option>
+              <option value="560">6E-7136</option>
+              <option value="561">6E-7141</option>
+              <option value="562">6E-7147</option>
+              <option value="563">6E-7149</option>
+              <option value="564">6E-715</option>
+              <option value="565">6E-7156</option>
+              <option value="566">6E-716</option>
+              <option value="567">6E-7175</option>
+              <option value="568">6E-7177</option>
+              <option value="569">6E-7183</option>
+              <option value="570">6E-7185</option>
+              <option value="571">6E-7193</option>
+              <option value="572">6E-7195</option>
+              <option value="573">6E-7201</option>
+              <option value="574">6E-7202</option>
+              <option value="575">6E-7204</option>
+              <option value="576">6E-7208</option>
+              <option value="577">6E-7211</option>
+              <option value="578">6E-7216</option>
+              <option value="579">6E-7221</option>
+              <option value="580">6E-7223</option>
+              <option value="581">6E-7224</option>
+              <option value="582">6E-7227</option>
+              <option value="583">6E-7234</option>
+              <option value="584">6E-725</option>
+              <option value="585">6E-7252</option>
+              <option value="586">6E-7257</option>
+              <option value="587">6E-7259</option>
+              <option value="588">6E-7261</option>
+              <option value="589">6E-7264</option>
+              <option value="590">6E-727</option>
+              <option value="591">6E-7271</option>
+              <option value="592">6E-7288</option>
+              <option value="593">6E-7292</option>
+              <option value="594">6E-7293</option>
+              <option value="595">6E-7298</option>
+              <option value="596">6E-7307</option>
+              <option value="597">6E-7329</option>
+              <option value="598">6E-7336</option>
+              <option value="599">6E-7348</option>
+              <option value="600">6E-735</option>
+              <option value="601">6E-736</option>
+              <option value="602">6E-738</option>
+              <option value="603">6E-739</option>
+              <option value="604">6E-7403</option>
+              <option value="605">6E-7407</option>
+              <option value="606">6E-743</option>
+              <option value="607">6E-747</option>
+              <option value="608">6E-751</option>
+              <option value="609">6E-752</option>
+              <option value="610">6E-755</option>
+              <option value="611">6E-7561</option>
+              <option value="612">6E-757</option>
+              <option value="613">6E-7583</option>
+              <option value="614">6E-7587</option>
+              <option value="615">6E-7589</option>
+              <option value="616">6E-759</option>
+              <option value="617">6E-761</option>
+              <option value="618">6E-7623</option>
+              <option value="619">6E-767</option>
+              <option value="620">6E-7713</option>
+              <option value="621">6E-772</option>
+              <option value="622">6E-781</option>
+              <option value="623">6E-782</option>
+              <option value="624">6E-788</option>
+              <option value="625">6E-793</option>
+              <option value="626">6E-796</option>
+              <option value="627">6E-798</option>
+              <option value="628">6E-802</option>
+              <option value="629">6E-804</option>
+              <option value="630">6E-806</option>
+              <option value="631">6E-807</option>
+              <option value="632">6E-809</option>
+              <option value="633">6E-811</option>
+              <option value="634">6E-818</option>
+              <option value="635">6E-821</option>
+              <option value="636">6E-822</option>
+              <option value="637">6E-825</option>
+              <option value="638">6E-827</option>
+              <option value="639">6E-832</option>
+              <option value="640">6E-841</option>
+              <option value="641">6E-847</option>
+              <option value="642">6E-848</option>
+              <option value="643">6E-854</option>
+              <option value="644">6E-855</option>
+              <option value="645">6E-856</option>
+              <option value="646">6E-864</option>
+              <option value="647">6E-865</option>
+              <option value="648">6E-866</option>
+              <option value="649">6E-869</option>
+              <option value="650">6E-871</option>
+              <option value="651">6E-875</option>
+              <option value="652">6E-879</option>
+              <option value="653">6E-881</option>
+              <option value="654">6E-882</option>
+              <option value="655">6E-884</option>
+              <option value="656">6E-886</option>
+              <option value="657">6E-887</option>
+              <option value="658">6E-889</option>
+              <option value="659">6E-892</option>
+              <option value="660">6E-893</option>
+              <option value="661">6E-895</option>
+              <option value="662">6E-897</option>
+              <option value="663">6E-898</option>
+              <option value="664">6E-903</option>
+              <option value="665">6E-905</option>
+              <option value="666">6E-907</option>
+              <option value="667">6E-911</option>
+              <option value="668">6E-912</option>
+              <option value="669">6E-913</option>
+              <option value="670">6E-917</option>
+              <option value="671">6E-922</option>
+              <option value="672">6E-926</option>
+              <option value="673">6E-927</option>
+              <option value="674">6E-929</option>
+              <option value="675">6E-932</option>
+              <option value="676">6E-938</option>
+              <option value="677">6E-939</option>
+              <option value="678">6E-943</option>
+              <option value="679">6E-944</option>
+              <option value="680">6E-945</option>
+              <option value="681">6E-947</option>
+              <option value="682">6E-949</option>
+              <option value="683">6E-951</option>
+              <option value="684">6E-952</option>
+              <option value="685">6E-954</option>
+              <option value="686">6E-958</option>
+              <option value="687">6E-959</option>
+              <option value="688">6E-961</option>
+              <option value="689">6E-963</option>
+              <option value="690">6E-966</option>
+              <option value="691">6E-967</option>
+              <option value="692">6E-969</option>
+              <option value="693">6E-972</option>
+              <option value="694">6E-973</option>
+              <option value="695">6E-975</option>
+              <option value="696">6E-978</option>
+              <option value="697">6E-982</option>
+              <option value="698">6E-987</option>
+              <option value="699">6E-989</option>
+              <option value="700">6E-992</option>
+              <option value="701">6E-994</option>
+              <option value="702">6E-995</option>
+              <option value="703">6E-998</option>
+              <option value="704">AI-401</option>
+              <option value="705">AI-402</option>
+              <option value="706">AI-403</option>
+              <option value="707">AI-406</option>
+              <option value="708">AI-407</option>
+              <option value="709">AI-409</option>
+              <option value="710">AI-411</option>
+              <option value="711">AI-415</option>
+              <option value="712">AI-420</option>
+              <option value="713">AI-423</option>
+              <option value="714">AI-424</option>
+              <option value="715">AI-429</option>
+              <option value="716">AI-430</option>
+              <option value="717">AI-431</option>
+              <option value="718">AI-433</option>
+              <option value="719">AI-435</option>
+              <option value="720">AI-437</option>
+              <option value="721">AI-439</option>
+              <option value="722">AI-440</option>
+              <option value="723">AI-441</option>
+              <option value="724">AI-442</option>
+              <option value="725">AI-451</option>
+              <option value="726">AI-453</option>
+              <option value="727">AI-459</option>
+              <option value="728">AI-465</option>
+              <option value="729">AI-467</option>
+              <option value="730">AI-469</option>
+              <option value="731">AI-471</option>
+              <option value="732">AI-473</option>
+              <option value="733">AI-475</option>
+              <option value="734">AI-479</option>
+              <option value="735">AI-481</option>
+              <option value="736">AI-483</option>
+              <option value="737">AI-485</option>
+              <option value="738">AI-487</option>
+              <option value="739">AI-489</option>
+              <option value="740">AI-491</option>
+              <option value="741">AI-493</option>
+              <option value="742">AI-499</option>
+              <option value="743">AI-501</option>
+              <option value="744">AI-502</option>
+              <option value="745">AI-503</option>
+              <option value="746">AI-504</option>
+              <option value="747">AI-505</option>
+              <option value="748">AI-506</option>
+              <option value="749">AI-507</option>
+              <option value="750">AI-508</option>
+              <option value="751">AI-509</option>
+              <option value="752">AI-512</option>
+              <option value="753">AI-515</option>
+              <option value="754">AI-516</option>
+              <option value="755">AI-523</option>
+              <option value="756">AI-525</option>
+              <option value="757">AI-526</option>
+              <option value="758">AI-531</option>
+              <option value="759">AI-537</option>
+              <option value="760">AI-538</option>
+              <option value="761">AI-539</option>
+              <option value="762">AI-540</option>
+              <option value="763">AI-541</option>
+              <option value="764">AI-542</option>
+              <option value="765">AI-543</option>
+              <option value="766">AI-544</option>
+              <option value="767">AI-545</option>
+              <option value="768">AI-546</option>
+              <option value="769">AI-549</option>
+              <option value="770">AI-551</option>
+              <option value="771">AI-559</option>
+              <option value="772">AI-560</option>
+              <option value="773">AI-563</option>
+              <option value="774">AI-564</option>
+              <option value="775">AI-565</option>
+              <option value="776">AI-569</option>
+              <option value="777">AI-570</option>
+              <option value="778">AI-573</option>
+              <option value="779">AI-583</option>
+              <option value="780">AI-601</option>
+              <option value="781">AI-603</option>
+              <option value="782">AI-604</option>
+              <option value="783">AI-607</option>
+              <option value="784">AI-610</option>
+              <option value="785">AI-611</option>
+              <option value="786">AI-615</option>
+              <option value="787">AI-616</option>
+              <option value="788">AI-619</option>
+              <option value="789">AI-620</option>
+              <option value="790">AI-623</option>
+              <option value="791">AI-624</option>
+              <option value="792">AI-625</option>
+              <option value="793">AI-627</option>
+              <option value="794">AI-629</option>
+              <option value="795">AI-631</option>
+              <option value="796">AI-633</option>
+              <option value="797">AI-635</option>
+              <option value="798">AI-636</option>
+              <option value="799">AI-637</option>
+              <option value="800">AI-639</option>
+              <option value="801">AI-640</option>
+              <option value="802">AI-641</option>
+              <option value="803">AI-643</option>
+              <option value="804">AI-645</option>
+              <option value="805">AI-649</option>
+              <option value="806">AI-651</option>
+              <option value="807">AI-652</option>
+              <option value="808">AI-655</option>
+              <option value="809">AI-657</option>
+              <option value="810">AI-660</option>
+              <option value="811">AI-663</option>
+              <option value="812">AI-665</option>
+              <option value="813">AI-667</option>
+              <option value="814">AI-669</option>
+              <option value="815">AI-671</option>
+              <option value="816">AI-672</option>
+              <option value="817">AI-673</option>
+              <option value="818">AI-675</option>
+              <option value="819">AI-676</option>
+              <option value="820">AI-678</option>
+              <option value="821">AI-679</option>
+              <option value="822">AI-681</option>
+              <option value="823">AI-683</option>
+              <option value="824">AI-685</option>
+              <option value="825">AI-687</option>
+              <option value="826">AI-688</option>
+              <option value="827">AI-695</option>
+              <option value="828">AI-698</option>
+              <option value="829">AI-713</option>
+              <option value="830">AI-715</option>
+              <option value="831">AI-721</option>
+              <option value="832">AI-729</option>
+              <option value="833">AI-732</option>
+              <option value="834">AI-738</option>
+              <option value="835">AI-743</option>
+              <option value="836">AI-745</option>
+              <option value="837">AI-747</option>
+              <option value="838">AI-748</option>
+              <option value="839">AI-762</option>
+              <option value="840">AI-763</option>
+              <option value="841">AI-764</option>
+              <option value="842">AI-765</option>
+              <option value="843">AI-766</option>
+              <option value="844">AI-767</option>
+              <option value="845">AI-768</option>
+              <option value="846">AI-770</option>
+              <option value="847">AI-771</option>
+              <option value="848">AI-772</option>
+              <option value="849">AI-773</option>
+              <option value="850">AI-774</option>
+              <option value="851">AI-775</option>
+              <option value="852">AI-776</option>
+              <option value="853">AI-780</option>
+              <option value="854">AI-781</option>
+              <option value="855">AI-787</option>
+              <option value="856">AI-801</option>
+              <option value="857">AI-803</option>
+              <option value="858">AI-804</option>
+              <option value="859">AI-805</option>
+              <option value="860">AI-806</option>
+              <option value="861">AI-807</option>
+              <option value="862">AI-808</option>
+              <option value="863">AI-809</option>
+              <option value="864">AI-811</option>
+              <option value="865">AI-837</option>
+              <option value="866">AI-838</option>
+              <option value="867">AI-839</option>
+              <option value="868">AI-840</option>
+              <option value="869">AI-861</option>
+              <option value="870">AI-864</option>
+              <option value="871">AI-865</option>
+              <option value="872">AI-867</option>
+              <option value="873">AI-868</option>
+              <option value="874">AI-877</option>
+              <option value="875">AI-879</option>
+              <option value="876">AI-883</option>
+              <option value="877">AI-885</option>
+              <option value="878">AI-887</option>
+              <option value="879">AI-888</option>
+              <option value="880">AI-889</option>
+              <option value="881">AI-891</option>
+              <option value="882">AI-895</option>
+              <option value="883">AI-9015</option>
+              <option value="884">AI-9017</option>
+              <option value="885">AI-9030</option>
+              <option value="886">AI-9501</option>
+              <option value="887">AI-9505</option>
+              <option value="888">AI-9517</option>
+              <option value="889">AI-9518</option>
+              <option value="890">AI-9547</option>
+              <option value="891">AI-9609</option>
+              <option value="892">AI-9643</option>
+              <option value="893">AI-9645</option>
+              <option value="894">AI-9657</option>
+              <option value="895">AI-9720</option>
+              <option value="896">AI-9741</option>
+              <option value="897">AI-9745</option>
+              <option value="898">AI-9755</option>
+              <option value="899">AI-9809</option>
+              <option value="900">AI-9843</option>
+              <option value="901">AI-9857</option>
+              <option value="902">AI-9875</option>
+              <option value="903">AI-9876</option>
+              <option value="904">AI-9881</option>
+              <option value="905">AI-9885</option>
+              <option value="906">AI-9887</option>
+              <option value="907">AI-9891</option>
+              <option value="908">AI-9893</option>
+              <option value="909">AI-9894</option>
+              <option value="910">AI-9911</option>
+              <option value="911">AI-9915</option>
+              <option value="912">AI-9919</option>
+              <option value="913">AI-9921</option>
+              <option value="914">AI-9925</option>
+              <option value="915">AI-9927</option>
+              <option value="916">AI-9928</option>
+              <option value="917">AI-9929</option>
+              <option value="918">AI-9931</option>
+              <option value="919">AI-9937</option>
+              <option value="920">AI-9939</option>
+              <option value="921">AI-9991</option>
+              <option value="922">G8-101</option>
+              <option value="923">G8-1010</option>
+              <option value="924">G8-102</option>
+              <option value="925">G8-103</option>
+              <option value="926">G8-105</option>
+              <option value="927">G8-107</option>
+              <option value="928">G8-108</option>
+              <option value="929">G8-113</option>
+              <option value="930">G8-116</option>
+              <option value="931">G8-1171</option>
+              <option value="932">G8-118</option>
+              <option value="933">G8-119</option>
+              <option value="934">G8-121</option>
+              <option value="935">G8-123</option>
+              <option value="936">G8-125</option>
+              <option value="937">G8-131</option>
+              <option value="938">G8-133</option>
+              <option value="939">G8-1404</option>
+              <option value="940">G8-143</option>
+              <option value="941">G8-145</option>
+              <option value="942">G8-146</option>
+              <option value="943">G8-151</option>
+              <option value="944">G8-153</option>
+              <option value="945">G8-165</option>
+              <option value="946">G8-171</option>
+              <option value="947">G8-173</option>
+              <option value="948">G8-188</option>
+              <option value="949">G8-191</option>
+              <option value="950">G8-194</option>
+              <option value="951">G8-199</option>
+              <option value="952">G8-203</option>
+              <option value="953">G8-207</option>
+              <option value="954">G8-209</option>
+              <option value="955">G8-211</option>
+              <option value="956">G8-213</option>
+              <option value="957">G8-2201</option>
+              <option value="958">G8-2231</option>
+              <option value="959">G8-227</option>
+              <option value="960">G8-231</option>
+              <option value="961">G8-237</option>
+              <option value="962">G8-2401</option>
+              <option value="963">G8-2403</option>
+              <option value="964">G8-241</option>
+              <option value="965">G8-2411</option>
+              <option value="966">G8-2417</option>
+              <option value="967">G8-244</option>
+              <option value="968">G8-2440</option>
+              <option value="969">G8-2501</option>
+              <option value="970">G8-2502</option>
+              <option value="971">G8-2504</option>
+              <option value="972">G8-2506</option>
+              <option value="973">G8-2508</option>
+              <option value="974">G8-2509</option>
+              <option value="975">G8-2511</option>
+              <option value="976">G8-2513</option>
+              <option value="977">G8-2601</option>
+              <option value="978">G8-2605</option>
+              <option value="979">G8-2606</option>
+              <option value="980">G8-2607</option>
+              <option value="981">G8-2609</option>
+              <option value="982">G8-266</option>
+              <option value="983">G8-268</option>
+              <option value="984">G8-275</option>
+              <option value="985">G8-283</option>
+              <option value="986">G8-285</option>
+              <option value="987">G8-286</option>
+              <option value="988">G8-287</option>
+              <option value="989">G8-292</option>
+              <option value="990">G8-294</option>
+              <option value="991">G8-295</option>
+              <option value="992">G8-297</option>
+              <option value="993">G8-299</option>
+              <option value="994">G8-300</option>
+              <option value="995">G8-302</option>
+              <option value="996">G8-303</option>
+              <option value="997">G8-304</option>
+              <option value="998">G8-305</option>
+              <option value="999">G8-306</option>
+              <option value="1000">G8-312</option>
+              <option value="1001">G8-317</option>
+              <option value="1002">G8-3184</option>
+              <option value="1003">G8-319</option>
+              <option value="1004">G8-320</option>
+              <option value="1005">G8-321</option>
+              <option value="1006">G8-322</option>
+              <option value="1007">G8-323</option>
+              <option value="1008">G8-325</option>
+              <option value="1009">G8-327</option>
+              <option value="1010">G8-329</option>
+              <option value="1011">G8-330</option>
+              <option value="1012">G8-331</option>
+              <option value="1013">G8-334</option>
+              <option value="1014">G8-336</option>
+              <option value="1015">G8-338</option>
+              <option value="1016">G8-339</option>
+              <option value="1017">G8-341</option>
+              <option value="1018">G8-345</option>
+              <option value="1019">G8-346</option>
+              <option value="1020">G8-347</option>
+              <option value="1021">G8-349</option>
+              <option value="1022">G8-351</option>
+              <option value="1023">G8-354</option>
+              <option value="1024">G8-357</option>
+              <option value="1025">G8-363</option>
+              <option value="1026">G8-364</option>
+              <option value="1027">G8-365</option>
+              <option value="1028">G8-371</option>
+              <option value="1029">G8-374</option>
+              <option value="1030">G8-381</option>
+              <option value="1031">G8-382</option>
+              <option value="1032">G8-383</option>
+              <option value="1033">G8-384</option>
+              <option value="1034">G8-385</option>
+              <option value="1035">G8-387</option>
+              <option value="1036">G8-390</option>
+              <option value="1037">G8-391</option>
+              <option value="1038">G8-392</option>
+              <option value="1039">G8-393</option>
+              <option value="1040">G8-395</option>
+              <option value="1041">G8-397</option>
+              <option value="1042">G8-398</option>
+              <option value="1043">G8-399</option>
+              <option value="1044">G8-401</option>
+              <option value="1045">G8-403</option>
+              <option value="1046">G8-404</option>
+              <option value="1047">G8-405</option>
+              <option value="1048">G8-422</option>
+              <option value="1049">G8-423</option>
+              <option value="1050">G8-424</option>
+              <option value="1051">G8-426</option>
+              <option value="1052">G8-451</option>
+              <option value="1053">G8-461</option>
+              <option value="1054">G8-501</option>
+              <option value="1055">G8-503</option>
+              <option value="1056">G8-504</option>
+              <option value="1057">G8-505</option>
+              <option value="1058">G8-506</option>
+              <option value="1059">G8-509</option>
+              <option value="1060">G8-510</option>
+              <option value="1061">G8-511</option>
+              <option value="1062">G8-512</option>
+              <option value="1063">G8-513</option>
+              <option value="1064">G8-515</option>
+              <option value="1065">G8-517</option>
+              <option value="1066">G8-518</option>
+              <option value="1067">G8-519</option>
+              <option value="1068">G8-520</option>
+              <option value="1069">G8-530</option>
+              <option value="1070">G8-532</option>
+              <option value="1071">G8-537</option>
+              <option value="1072">G8-551</option>
+              <option value="1073">G8-571</option>
+              <option value="1074">G8-575</option>
+              <option value="1075">G8-602</option>
+              <option value="1076">G8-625</option>
+              <option value="1077">G8-626</option>
+              <option value="1078">G8-661</option>
+              <option value="1079">G8-676</option>
+              <option value="1080">G8-681</option>
+              <option value="1081">G8-701</option>
+              <option value="1082">G8-704</option>
+              <option value="1083">G8-705</option>
+              <option value="1084">G8-713</option>
+              <option value="1085">G8-717</option>
+              <option value="1086">G8-719</option>
+              <option value="1087">G8-7533</option>
+              <option value="1088">G8-7534</option>
+              <option value="1089">G8-7535</option>
+              <option value="1090">G8-7536</option>
+              <option value="1091">G8-7537</option>
+              <option value="1092">G8-7538</option>
+              <option value="1093">G8-7541</option>
+              <option value="1094">G8-7542</option>
+              <option value="1095">G8-7543</option>
+              <option value="1096">G8-7545</option>
+              <option value="1097">G8-7546</option>
+              <option value="1098">G8-7547</option>
+              <option value="1099">G8-7548</option>
+              <option value="1100">G8-7549</option>
+              <option value="1101">G8-7553</option>
+              <option value="1102">G8-7555</option>
+              <option value="1103">G8-7556</option>
+              <option value="1104">G8-7557</option>
+              <option value="1105">G8-7559</option>
+              <option value="1106">G8-7560</option>
+              <option value="1107">G8-7561</option>
+              <option value="1108">G8-7562</option>
+              <option value="1109">G8-787</option>
+              <option value="1110">G8-789</option>
+              <option value="1111">G8-790</option>
+              <option value="1112">G8-791</option>
+              <option value="1113">G8-792</option>
+              <option value="1114">G8-801</option>
+              <option value="1115">G8-803</option>
+              <option value="1116">G8-805</option>
+              <option value="1117">G8-806</option>
+              <option value="1118">G8-808</option>
+              <option value="1119">G8-812</option>
+              <option value="1120">G8-813</option>
+              <option value="1121">G8-815</option>
+              <option value="1122">G8-873</option>
+              <option value="1123">G8-911</option>
+              <option value="1124">G8-9110</option>
+              <option value="1125">G8-917</option>
+              <option value="1126">G8-962</option>
+              <option value="1127">I5-1228</option>
+              <option value="1128">I5-1229</option>
+              <option value="1129">I5-1321</option>
+              <option value="1130">I5-1426</option>
+              <option value="1131">I5-1427</option>
+              <option value="1132">I5-1451</option>
+              <option value="1133">I5-1454</option>
+              <option value="1134">I5-1517</option>
+              <option value="1135">I5-1518</option>
+              <option value="1136">I5-1528</option>
+              <option value="1137">I5-1529</option>
+              <option value="1138">I5-1530</option>
+              <option value="1139">I5-1531</option>
+              <option value="1140">I5-1540</option>
+              <option value="1141">I5-1543</option>
+              <option value="1142">I5-1561</option>
+              <option value="1143">I5-1562</option>
+              <option value="1144">I5-1563</option>
+              <option value="1145">I5-1564</option>
+              <option value="1146">I5-1566</option>
+              <option value="1147">I5-1569</option>
+              <option value="1148">I5-1576</option>
+              <option value="1149">I5-1621</option>
+              <option value="1150">I5-1622</option>
+              <option value="1151">I5-1727</option>
+              <option value="1152">I5-1731</option>
+              <option value="1153">I5-1780</option>
+              <option value="1154">I5-1782</option>
+              <option value="1155">I5-1783</option>
+              <option value="1156">I5-1982</option>
+              <option value="1157">I5-1983</option>
+              <option value="1158">I5-2392</option>
+              <option value="1159">I5-2461</option>
+              <option value="1160">I5-2462</option>
+              <option value="1161">I5-2472</option>
+              <option value="1162">I5-2473</option>
+              <option value="1163">I5-2991</option>
+              <option value="1164">I5-319</option>
+              <option value="1165">I5-330</option>
+              <option value="1166">I5-334</option>
+              <option value="1167">I5-336</option>
+              <option value="1168">I5-338</option>
+              <option value="1169">I5-339</option>
+              <option value="1170">I5-360</option>
+              <option value="1171">I5-361</option>
+              <option value="1172">I5-371</option>
+              <option value="1173">I5-410</option>
+              <option value="1174">I5-423</option>
+              <option value="1175">I5-471</option>
+              <option value="1176">I5-482</option>
+              <option value="1177">I5-510</option>
+              <option value="1178">I5-517</option>
+              <option value="1179">I5-5204</option>
+              <option value="1180">I5-5205</option>
+              <option value="1181">I5-5402</option>
+              <option value="1182">I5-5405</option>
+              <option value="1183">I5-5406</option>
+              <option value="1184">I5-541</option>
+              <option value="1185">I5-547</option>
+              <option value="1186">I5-548</option>
+              <option value="1187">I5-550</option>
+              <option value="1188">I5-552</option>
+              <option value="1189">I5-556</option>
+              <option value="1190">I5-557</option>
+              <option value="1191">I5-559</option>
+              <option value="1192">I5-582</option>
+              <option value="1193">I5-583</option>
+              <option value="1194">I5-588</option>
+              <option value="1195">I5-589</option>
+              <option value="1196">I5-592</option>
+              <option value="1197">I5-620</option>
+              <option value="1198">I5-631</option>
+              <option value="1199">I5-678</option>
+              <option value="1200">I5-710</option>
+              <option value="1201">I5-711</option>
+              <option value="1202">I5-713</option>
+              <option value="1203">I5-721</option>
+              <option value="1204">I5-722</option>
+              <option value="1205">I5-735</option>
+              <option value="1206">I5-736</option>
+              <option value="1207">I5-737</option>
+              <option value="1208">I5-740</option>
+              <option value="1209">I5-741</option>
+              <option value="1210">I5-744</option>
+              <option value="1211">I5-747</option>
+              <option value="1212">I5-749</option>
+              <option value="1213">I5-764</option>
+              <option value="1214">I5-766</option>
+              <option value="1215">I5-767</option>
+              <option value="1216">I5-768</option>
+              <option value="1217">I5-773</option>
+              <option value="1218">I5-775</option>
+              <option value="1219">I5-779</option>
+              <option value="1220">I5-783</option>
+              <option value="1221">I5-784</option>
+              <option value="1222">I5-787</option>
+              <option value="1223">I5-788</option>
+              <option value="1224">I5-791</option>
+              <option value="1225">I5-792</option>
+              <option value="1226">I5-798</option>
+              <option value="1227">I5-818</option>
+              <option value="1228">I5-819</option>
+              <option value="1229">I5-820</option>
+              <option value="1230">I5-821</option>
+              <option value="1231">I5-829</option>
+              <option value="1232">I5-830</option>
+              <option value="1233">I5-881</option>
+              <option value="1234">I5-892</option>
+              <option value="1235">I5-941</option>
+              <option value="1236">I5-942</option>
+              <option value="1237">I5-972</option>
+              <option value="1238">I5-974</option>
+              <option value="1239">I5-991</option>
+              <option value="1240">I5-992</option>
+              <option value="1241">I5-996</option>
+              <option value="1242">SG-1031</option>
+              <option value="1243">SG-1032</option>
+              <option value="1244">SG-1054</option>
+              <option value="1245">SG-1056</option>
+              <option value="1246">SG-1057</option>
+              <option value="1247">SG-1058</option>
+              <option value="1248">SG-1059</option>
+              <option value="1249">SG-1061</option>
+              <option value="1250">SG-1062</option>
+              <option value="1251">SG-1063</option>
+              <option value="1252">SG-107</option>
+              <option value="1253">SG-1071</option>
+              <option value="1254">SG-1072</option>
+              <option value="1255">SG-1074</option>
+              <option value="1256">SG-1077</option>
+              <option value="1257">SG-1089</option>
+              <option value="1258">SG-1090</option>
+              <option value="1259">SG-1091</option>
+              <option value="1260">SG-1092</option>
+              <option value="1261">SG-136</option>
+              <option value="1262">SG-143</option>
+              <option value="1263">SG-163</option>
+              <option value="1264">SG-191</option>
+              <option value="1265">SG-197</option>
+              <option value="1266">SG-198</option>
+              <option value="1267">SG-209</option>
+              <option value="1268">SG-223</option>
+              <option value="1269">SG-2277</option>
+              <option value="1270">SG-241</option>
+              <option value="1271">SG-242</option>
+              <option value="1272">SG-2508</option>
+              <option value="1273">SG-251</option>
+              <option value="1274">SG-254</option>
+              <option value="1275">SG-263</option>
+              <option value="1276">SG-264</option>
+              <option value="1277">SG-2643</option>
+              <option value="1278">SG-2697</option>
+              <option value="1279">SG-274</option>
+              <option value="1280">SG-276</option>
+              <option value="1281">SG-292</option>
+              <option value="1282">SG-2976</option>
+              <option value="1283">SG-3002</option>
+              <option value="1284">SG-3023</option>
+              <option value="1285">SG-3027</option>
+              <option value="1286">SG-3229</option>
+              <option value="1287">SG-3233</option>
+              <option value="1288">SG-3239</option>
+              <option value="1289">SG-3248</option>
+              <option value="1290">SG-327</option>
+              <option value="1291">SG-3281</option>
+              <option value="1292">SG-3283</option>
+              <option value="1293">SG-329</option>
+              <option value="1294">SG-3321</option>
+              <option value="1295">SG-337</option>
+              <option value="1296">SG-339</option>
+              <option value="1297">SG-343</option>
+              <option value="1298">SG-3440</option>
+              <option value="1299">SG-349</option>
+              <option value="1300">SG-3564</option>
+              <option value="1301">SG-366</option>
+              <option value="1302">SG-3719</option>
+              <option value="1303">SG-3723</option>
+              <option value="1304">SG-3725</option>
+              <option value="1305">SG-3728</option>
+              <option value="1306">SG-3831</option>
+              <option value="1307">SG-3832</option>
+              <option value="1308">SG-3835</option>
+              <option value="1309">SG-3839</option>
+              <option value="1310">SG-387</option>
+              <option value="1311">SG-388</option>
+              <option value="1312">SG-389</option>
+              <option value="1313">SG-390</option>
+              <option value="1314">SG-395</option>
+              <option value="1315">SG-4003</option>
+              <option value="1316">SG-4005</option>
+              <option value="1317">SG-4009</option>
+              <option value="1318">SG-401</option>
+              <option value="1319">SG-4010</option>
+              <option value="1320">SG-4025</option>
+              <option value="1321">SG-4027</option>
+              <option value="1322">SG-4031</option>
+              <option value="1323">SG-406</option>
+              <option value="1324">SG-415</option>
+              <option value="1325">SG-438</option>
+              <option value="1326">SG-4417</option>
+              <option value="1327">SG-455</option>
+              <option value="1328">SG-467</option>
+              <option value="1329">SG-468</option>
+              <option value="1330">SG-475</option>
+              <option value="1331">SG-480</option>
+              <option value="1332">SG-487</option>
+              <option value="1333">SG-488</option>
+              <option value="1334">SG-489</option>
+              <option value="1335">SG-5002</option>
+              <option value="1336">SG-5006</option>
+              <option value="1337">SG-5007</option>
+              <option value="1338">SG-5012</option>
+              <option value="1339">SG-5013</option>
+              <option value="1340">SG-5018</option>
+              <option value="1341">SG-5019</option>
+              <option value="1342">SG-5025</option>
+              <option value="1343">SG-5067</option>
+              <option value="1344">SG-5068</option>
+              <option value="1345">SG-5069</option>
+              <option value="1346">SG-5072</option>
+              <option value="1347">SG-5073</option>
+              <option value="1348">SG-5074</option>
+              <option value="1349">SG-5075</option>
+              <option value="1350">SG-5079</option>
+              <option value="1351">SG-5088</option>
+              <option value="1352">SG-5091</option>
+              <option value="1353">SG-5092</option>
+              <option value="1354">SG-5093</option>
+              <option value="1355">SG-5094</option>
+              <option value="1356">SG-516</option>
+              <option value="1357">SG-517</option>
+              <option value="1358">SG-520</option>
+              <option value="1359">SG-531</option>
+              <option value="1360">SG-534</option>
+              <option value="1361">SG-535</option>
+              <option value="1362">SG-6001</option>
+              <option value="1363">SG-6003</option>
+              <option value="1364">SG-6005</option>
+              <option value="1365">SG-6006</option>
+              <option value="1366">SG-6016</option>
+              <option value="1367">SG-6017</option>
+              <option value="1368">SG-6018</option>
+              <option value="1369">SG-6027</option>
+              <option value="1370">SG-611</option>
+              <option value="1371">SG-612</option>
+              <option value="1372">SG-634</option>
+              <option value="1373">SG-635</option>
+              <option value="1374">SG-649</option>
+              <option value="1375">SG-678</option>
+              <option value="1376">SG-679</option>
+              <option value="1377">SG-731</option>
+              <option value="1378">SG-732</option>
+              <option value="1379">SG-768</option>
+              <option value="1380">SG-8103</option>
+              <option value="1381">SG-8104</option>
+              <option value="1382">SG-8106</option>
+              <option value="1383">SG-8107</option>
+              <option value="1384">SG-8108</option>
+              <option value="1385">SG-8130</option>
+              <option value="1386">SG-8152</option>
+              <option value="1387">SG-8157</option>
+              <option value="1388">SG-8158</option>
+              <option value="1389">SG-8169</option>
+              <option value="1390">SG-8171</option>
+              <option value="1391">SG-8179</option>
+              <option value="1392">SG-8185</option>
+              <option value="1393">SG-8187</option>
+              <option value="1394">SG-8191</option>
+              <option value="1395">SG-8193</option>
+              <option value="1396">SG-8195</option>
+              <option value="1397">SG-8207</option>
+              <option value="1398">SG-8253</option>
+              <option value="1399">SG-8263</option>
+              <option value="1400">SG-8264</option>
+              <option value="1401">SG-8339</option>
+              <option value="1402">SG-8411</option>
+              <option value="1403">SG-8480</option>
+              <option value="1404">SG-8483</option>
+              <option value="1405">SG-8645</option>
+              <option value="1406">SG-8701</option>
+              <option value="1407">SG-8702</option>
+              <option value="1408">SG-8709</option>
+              <option value="1409">SG-8710</option>
+              <option value="1410">SG-8721</option>
+              <option value="1411">SG-8723</option>
+              <option value="1412">SG-8803</option>
+              <option value="1413">SG-8903</option>
+              <option value="1414">SG-8905</option>
+              <option value="1415">SG-8906</option>
+              <option value="1416">SG-8910</option>
+              <option value="1417">SG-8913</option>
+              <option value="1418">SG-8938</option>
+              <option value="1419">SG-8941</option>
+              <option value="1420">SG-8946</option>
+              <option value="1421">SG-8968</option>
+              <option value="1422">SG-923</option>
+              <option value="1423">SG-946</option>
+              <option value="1424">SG-958</option>
+              <option value="1425">SG-9911</option>
+              <option value="1426">SG-9923</option>
+              <option value="1427">SG-9974</option>
+              <option value="1428">UK-613</option>
+              <option value="1429">UK-621</option>
+              <option value="1430">UK-627</option>
+              <option value="1431">UK-637</option>
+              <option value="1432">UK-641</option>
+              <option value="1433">UK-651</option>
+              <option value="1434">UK-653</option>
+              <option value="1435">UK-655</option>
+              <option value="1436">UK-657</option>
+              <option value="1437">UK-659</option>
+              <option value="1438">UK-671</option>
+              <option value="1439">UK-673</option>
+              <option value="1440">UK-683</option>
+              <option value="1441">UK-705</option>
+              <option value="1442">UK-706</option>
+              <option value="1443">UK-707</option>
+              <option value="1444">UK-708</option>
+              <option value="1445">UK-720</option>
+              <option value="1446">UK-721</option>
+              <option value="1447">UK-727</option>
+              <option value="1448">UK-737</option>
+              <option value="1449">UK-738</option>
+              <option value="1450">UK-741</option>
+              <option value="1451">UK-747</option>
+              <option value="1452">UK-755</option>
+              <option value="1453">UK-771</option>
+              <option value="1454">UK-772</option>
+              <option value="1455">UK-773</option>
+              <option value="1456">UK-774</option>
+              <option value="1457">UK-775</option>
+              <option value="1458">UK-776</option>
+              <option value="1459">UK-778</option>
+              <option value="1460">UK-801</option>
+              <option value="1461">UK-802</option>
+              <option value="1462">UK-807</option>
+              <option value="1463">UK-808</option>
+              <option value="1464">UK-809</option>
+              <option value="1465">UK-810</option>
+              <option value="1466">UK-811</option>
+              <option value="1467">UK-812</option>
+              <option value="1468">UK-813</option>
+              <option value="1469">UK-814</option>
+              <option value="1470">UK-815</option>
+              <option value="1471">UK-816</option>
+              <option value="1472">UK-817</option>
+              <option value="1473">UK-818</option>
+              <option value="1474">UK-819</option>
+              <option value="1475">UK-820</option>
+              <option value="1476">UK-821</option>
+              <option value="1477">UK-822</option>
+              <option value="1478">UK-823</option>
+              <option value="1479">UK-824</option>
+              <option value="1480">UK-825</option>
+              <option value="1481">UK-826</option>
+              <option value="1482">UK-827</option>
+              <option value="1483">UK-828</option>
+              <option value="1484">UK-829</option>
+              <option value="1485">UK-830</option>
+              <option value="1486">UK-832</option>
+              <option value="1487">UK-833</option>
+              <option value="1488">UK-834</option>
+              <option value="1489">UK-835</option>
+              <option value="1490">UK-836</option>
+              <option value="1491">UK-837</option>
+              <option value="1492">UK-838</option>
+              <option value="1493">UK-839</option>
+              <option value="1494">UK-841</option>
+              <option value="1495">UK-845</option>
+              <option value="1496">UK-846</option>
+              <option value="1497">UK-847</option>
+              <option value="1498">UK-849</option>
+              <option value="1499">UK-850</option>
+              <option value="1500">UK-851</option>
+              <option value="1501">UK-852</option>
+              <option value="1502">UK-853</option>
+              <option value="1503">UK-854</option>
+              <option value="1504">UK-855</option>
+              <option value="1505">UK-857</option>
+              <option value="1506">UK-858</option>
+              <option value="1507">UK-859</option>
+              <option value="1508">UK-860</option>
+              <option value="1509">UK-861</option>
+              <option value="1510">UK-863</option>
+              <option value="1511">UK-864</option>
+              <option value="1512">UK-865</option>
+              <option value="1513">UK-866</option>
+              <option value="1514">UK-867</option>
+              <option value="1515">UK-870</option>
+              <option value="1516">UK-871</option>
+              <option value="1517">UK-873</option>
+              <option value="1518">UK-874</option>
+              <option value="1519">UK-875</option>
+              <option value="1520">UK-876</option>
+              <option value="1521">UK-877</option>
+              <option value="1522">UK-878</option>
+              <option value="1523">UK-879</option>
+              <option value="1524">UK-880</option>
+              <option value="1525">UK-890</option>
+              <option value="1526">UK-893</option>
+              <option value="1527">UK-894</option>
+              <option value="1528">UK-897</option>
+              <option value="1529">UK-898</option>
+              <option value="1530">UK-899</option>
+              <option value="1531">UK-902</option>
+              <option value="1532">UK-910</option>
+              <option value="1533">UK-927</option>
+              <option value="1534">UK-928</option>
+              <option value="1535">UK-930</option>
+              <option value="1536">UK-933</option>
+              <option value="1537">UK-940</option>
+              <option value="1538">UK-941</option>
+              <option value="1539">UK-943</option>
+              <option value="1540">UK-944</option>
+              <option value="1541">UK-945</option>
+              <option value="1542">UK-950</option>
+              <option value="1543">UK-951</option>
+              <option value="1544">UK-953</option>
+              <option value="1545">UK-954</option>
+              <option value="1546">UK-955</option>
+              <option value="1547">UK-958</option>
+              <option value="1548">UK-960</option>
+              <option value="1549">UK-963</option>
+              <option value="1550">UK-970</option>
+              <option value="1551">UK-975</option>
+              <option value="1552">UK-977</option>
+              <option value="1553">UK-981</option>
+              <option value="1554">UK-985</option>
+              <option value="1555">UK-986</option>
+              <option value="1556">UK-988</option>
+              <option value="1557">UK-993</option>
+              <option value="1558">UK-994</option>
+              <option value="1559">UK-995</option>
+              <option value="1560">UK-996</option>
+
+
+            </select ><br> <br>
+
+            <label for="source_city" >Source City</label>
+            <select class="form__input" id="source_city" name="source_city" required>
+              <option value="" disabled selected>Select Destination City</option>
+              <option value="0">Bangalore</option>
+              <option value="1">Chennai</option>
+              <option value="2">Delhi</option>
+              <option value="3">Hyderabad</option>
+              <option value="4">Kolkata</option>
+              <option value="5">Mumbai</option>
+            </select ><br>
+
+            <label for="departure_time" >Departure Time</label>
+            <select class="form__input" id="departure_time" name="departure_time" required>
+                <option value="" disabled selected>Select Departure Time</option>
+                <option value="0">Afternoon</option>
+                <option value="1">Early Morning</option>
+                <option value="2">Evening</option>
+                <option value="2">Late Night</option>
+                <option value="4">Morning</option>
+                <option value="5">Night</option>
+            </select> <br>
+
+            <label for="stops" >Stops</label>
+            <select class="form__input" id="stops" name="stops" required>
+                <option value="" disabled selected>Select Stops</option>
+                <option value="2">Zero</option>
+                <option value="0">One</option>
+                <option value="1">Two or More</option>
+            </select> <br>
+
+            <label for="arrival_time" >Arrival Time</label>
+            <select class="form__input" id="arrival_time" name="arrival_time" required>
+                <option value="" disabled selected>Select Arrival Time</option>
+                <option value="0">Afternoon</option>
+                <option value="1">Early Morning</option>
+                <option value="2">Evening</option>
+                <option value="2">Late Night</option>
+                <option value="4">Morning</option>
+                <option value="5">Night</option>
+            </select> <br>
+
+            <label for="destination_city" >Destination City</label>
+            <select class="form__input" id="destination_city" name="destination_city" required>
+              <option value="" disabled selected>Select Destination City</option>
+              <option value="0">Bangalore</option>
+              <option value="1">Chennai</option>
+              <option value="2">Delhi</option>
+              <option value="3">Hyderabad</option>
+              <option value="4">Kolkata</option>
+              <option value="5">Mumbai</option>
+            </select><br>
+
+            <label for="travel_class" >Travel Class</label>
+            <select class="form__input" id="travel_class" name="travel_class" required>
+                <option value="" disabled selected>Select Class</option>
+                <option value="0">Business</option>
+                <option value="1">Economy</option>
+            </select> <br>
+
+            <label for="duration">Duration</label>
+            <input type="number" step="0.01" id="duration" name="duration" placeholder="Duration.." required min="0">
+
+            <label for="days_left">Days Left</label>
+            <input type="number" id="days_left" name="days_left" placeholder="Days Left" required min="0">
+
+
+
+          
+            <input type="submit" value="Predict">
+        </form>
+
+        {% if prediction %}
+          <h4 style="color: green;">{{ prediction }}</h4>
+        {% endif %}
+    </div>
+  </section>
+
+  <!-- end about section -->
+
+
+  <!-- info section -->
+  <section class="info_section innerpage_info_section">
+    <div class="container">
+      <div class="row info_main_row">
+        <div class="col-md-6 col-lg-3">
+          <div class="info_insta">
+            <h4>
+              <a href="{{ url_for('home') }}" class="navbar-brand m-0 p-0">
+                <span>
+                  Kayla Alysa 
+                </span>
+              </a>
+            </h4>
+            <p class="mb-0">
+              A Fresh Graduate of Information Technology passionate about data science, machine learning, and impactful digital solutions. This project is a small part of a bigger journey 🌟
+            </p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="info_detail">
+            <h4>
+              Project
+            </h4>
+            <p class="mb-0">
+              This web app is powered by a Machine Learning model using Random Forest Regressor to predict flight prices based on various travel features. Made with 💙 and code.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <h4>
+            Contact Me
+          </h4>
+          <div class="info_contact">
+            <a href="">
+              <i class="fa fa-map-marker" aria-hidden="true"></i>
+              <span>
+                Medan, Sumatera Utara
+              </span>
+            </a>
+            <a href="">
+              <i class="fa fa-envelope"></i>
+              <span>
+                Kaylaaadra12@gmail.com
+              </span>
+            </a>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <h4>
+            Follow Me
+          </h4>
+          <div class="social_box">
+            <a href="https://id.linkedin.com/in/kaylaalysa" target="_blank">
+              <i class="fa fa-linkedin" aria-hidden="true"></i>
+            </a>
+            <a href="http://instagram.com/kaylaalysaa" target="_blank">
+              <i class="fa fa-instagram" aria-hidden="true"></i>
+            </a>
+            <a href="https://github.com/kaylaalysa" target="_blank">
+              <i class="fa fa-github" aria-hidden="true"></i>
+            </a>            
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end info_section -->
+
+
+  <!-- jQery -->
+  <!-- <script src="js/jquery-3.4.1.min.js"></script> -->
+  <!-- bootstrap js -->
+  <!-- <script src="js/bootstrap.js"></script> -->
+  <!-- custom js -->
+  <!-- <script src="js/custom.js"></script> -->
+
+  <!-- jQuery -->
+  <script src="{{ url_for('static', filename='js/jquery-3.4.1.min.js') }}"></script>
+  <!-- Bootstrap JS -->
+  <script src="{{ url_for('static', filename='js/bootstrap.js') }}"></script>
+  <!-- Custom JS -->
+  <script src="{{ url_for('static', filename='js/custom.js') }}"></script>
+
+  <!-- jQuery (required by Select2) -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <!-- Select2 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+
+  <script>
+    $(document).ready(function() {
+      $('#flight').select2({
+        placeholder: 'Select a Flight',
+        allowClear: true
+      });
+    });
+  </script>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <link rel="icon" href="images/favicon.png" type="image/gif" />
+
+  <title>Flight Price Prediction - Homepage</title>
+
+  <!-- bootstrap core css -->
+  <!-- <link rel="stylesheet" type="text/css" href="css/bootstrap.css" /> -->
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" rel="stylesheet" />
+
+  <!-- font awesome style -->
+  <!-- <link href="css/font-awesome.min.css" rel="stylesheet" /> -->
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/font-awesome.min.css') }}">
+
+
+  <!-- Custom styles for this template -->
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+  <!-- responsive style -->
+  <!-- <link href="css/responsive.css" rel="stylesheet" /> -->
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/responsive.css') }}">
+
+</head>
+
+<body>
+
+  <!-- header section strats -->
+  <header class="header_section">
+    <div class="container-fluid">
+      <nav class="navbar navbar-expand-lg custom_nav-container">
+        <a class="navbar-brand" href="{{ url_for('home') }}">
+          <span>
+            Flight Price Prediction
+          </span>
+        </a>
+        <div class="" id="">
+
+          <div class="custom_menu-btn">
+            <button onclick="openNav()">
+              <span class="s-1"> </span>
+              <span class="s-2"> </span>
+              <span class="s-3"> </span>
+            </button>
+            <div id="myNav" class="overlay">
+              <div class="overlay-content">
+                <a href="{{ url_for('home') }}">Home</a>
+                <a href="{{ url_for('formpredict') }}">Predict Flight Price</a>
+                <a href="{{ url_for('about') }}">About Me</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <!-- end header section -->
+
+  <!-- slider section -->
+  <section class="slider_section position-relative">
+    <div id="customCarousel1" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="img_container">
+            <div class="img-box">
+              <img src="https://www.flyingmag.com/uploads/2022/06/AdobeStock_249454423-scaled.jpeg?auto=webp&auto=webp&optimize=high&quality=70&width=1440" class="" alt="..." style="height: 100vh; width: 100vw;" >
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="img_container">
+            <div class="img-box">
+              <img src="https://m.economictimes.com/thumb/msid-113190200,width-1200,height-900,resizemode-4,imgsize-53552/spicejet-board-to-consider-fund-raise-via-qip-on-july-23.jpg" class="" alt="..." style="height: 100vh; width: 100vw;" >
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="img_container">
+            <div class="img-box">
+              <img src="https://www.airindia.com/content/dam/air-india/newsroom/press-releases/images/AirIndiaA350.png" class="" alt="..." style="height: 100vh; width: 100vw;" >
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel_btn_box">
+        <a class="carousel-control-prev" href="#customCarousel1" role="button" data-slide="prev">
+          <i class="fa fa-arrow-left" aria-hidden="true"></i>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#customCarousel1" role="button" data-slide="next">
+          <i class="fa fa-arrow-right" aria-hidden="true"></i>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </div>
+    <div class="detail-box">
+      <div class="col-md-8 col-lg-6 mx-auto">
+        <div class="inner_detail-box">
+          <h1>
+            Flight Price<br>
+            Prediction
+          </h1>
+          <p>
+            Planning a trip? Use this flight price predictor to get an instant estimate 
+            of your ticket cost. Just enter your travel details and let our machine learning 
+            model do the rest—simple, fast, and helpful!
+          </p>
+          <div>
+            <a href="{{ url_for('formpredict') }}" class="slider-link">
+              Start Now
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end slider section -->
+
+  <!-- about section -->
+
+  <section class="about_section layout_padding ">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="img-box">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWAYMZN81qTkDZecAwtzIxl6y8FYy5JEWlTQ&s" alt="">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="detail-box">
+            <div class="heading_container">
+              <h2>
+                How the Model Works
+              </h2>
+            </div>
+            <p>
+              This flight price prediction system is powered by a machine learning model built using the Random Forest Regressor algorithm. 
+              To enhance the model's performance, hyperparameter tuning was performed using the RandomizedSearchCV technique. 
+              The model was evaluated using standard regression metrics. On the training data, it achieved an RMSE of 0.0672, MSE of 0.0045, and MAE of 0.0280. 
+              Meanwhile, on the validation data, it reached an RMSE of 0.1097, MSE of 0.0120, and MAE of 0.0468, showing strong generalization ability.
+            </p>            
+            <a href="https://github.com/kaylaalysa/FlightPricePrediction/blob/main/Final.ipynb" target="_blank">
+              More Information
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end about section 2 -->
+
+  <section class="about_section layout_padding " style="background-color: #f9f8f7;">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="detail-box">
+            <div class="heading_container">
+              <h2>
+                How to Predict Flight Price
+              </h2>
+            </div>   
+            <p>
+              To get a flight price prediction, simply click the <strong>Start Now</strong> button on the homepage. You will be redirected to a form page where you can input details such as the airline, departure time, source and destination cities, and more. Once the form is filled in, click the <strong>Predict</strong> button, and the system will instantly show the estimated ticket price based on your inputs.
+            </p>     
+            <a href="{{ url_for('formpredict') }}">
+              Start Now
+            </a>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="img-box">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7ZcfyKj2Sx4kquz2tiixZ6WIyKEeACc9EBw&s" alt="">
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- end about section 2 -->
+
+  <!-- info section -->
+  <section class="info_section innerpage_info_section">
+    <div class="container">
+      <div class="row info_main_row">
+        <div class="col-md-6 col-lg-3">
+          <div class="info_insta">
+            <h4>
+              <a href="{{ url_for('home') }}" class="navbar-brand m-0 p-0">
+                <span>
+                  Kayla Alysa 
+                </span>
+              </a>
+            </h4>
+            <p class="mb-0">
+              A Fresh Graduate of Information Technology passionate about data science, machine learning, and impactful digital solutions. This project is a small part of a bigger journey 🌟
+            </p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="info_detail">
+            <h4>
+              Project
+            </h4>
+            <p class="mb-0">
+              This web app is powered by a Machine Learning model using Random Forest Regressor to predict flight prices based on various travel features. Made with 💙 and code.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <h4>
+            Contact Me
+          </h4>
+          <div class="info_contact">
+            <a href="">
+              <i class="fa fa-map-marker" aria-hidden="true"></i>
+              <span>
+                Medan, Sumatera Utara
+              </span>
+            </a>
+            <a href="">
+              <i class="fa fa-envelope"></i>
+              <span>
+                Kaylaaadra12@gmail.com
+              </span>
+            </a>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <h4>
+            Follow Me
+          </h4>
+          <div class="social_box">
+            <a href="https://id.linkedin.com/in/kaylaalysa" target="_blank">
+              <i class="fa fa-linkedin" aria-hidden="true"></i>
+            </a>
+            <a href="http://instagram.com/kaylaalysaa" target="_blank">
+              <i class="fa fa-instagram" aria-hidden="true"></i>
+            </a>
+            <a href="https://github.com/kaylaalysa" target="_blank">
+              <i class="fa fa-github" aria-hidden="true"></i>
+            </a>            
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end info_section -->
+
+
+  <!-- jQery -->
+  <!-- <script src="js/jquery-3.4.1.min.js"></script> -->
+  <!-- bootstrap js -->
+  <!-- <script src="js/bootstrap.js"></script> -->
+  <!-- custom js -->
+  <!-- <script src="js/custom.js"></script> -->
+
+  <!-- jQuery -->
+  <script src="{{ url_for('static', filename='js/jquery-3.4.1.min.js') }}"></script>
+  <!-- Bootstrap JS -->
+  <script src="{{ url_for('static', filename='js/bootstrap.js') }}"></script>
+  <!-- Custom JS -->
+  <script src="{{ url_for('static', filename='js/custom.js') }}"></script>
+
+</body>
+
+</html>
